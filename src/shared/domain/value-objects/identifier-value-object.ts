@@ -1,11 +1,17 @@
-class IdentifierValueObject {
-    protected _value: string
+import ValueObject from "./value-objects"
+
+class IdentifierValueObject extends ValueObject<string>{
 
     constructor(value: string) {
-        this._value = value
+        super(value)
+        this.ensureValueIsUuid()
     }
 
     private ensureValueIsUuid(){
-        return 
+        if (typeof this._value !== "number") {
+           throw new Error("Is not a Int") 
+        }
     }
 }
+
+export default IdentifierValueObject

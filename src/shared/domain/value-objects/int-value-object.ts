@@ -1,8 +1,9 @@
-class IntValueObject {
-    protected _value: number
+import ValueObject from "./value-objects"
 
+
+class IntValueObject extends ValueObject<number>{
     constructor(value: number) {
-        this._value = value
+        super(value)
         this.ensureValueIsInt()
     }
 

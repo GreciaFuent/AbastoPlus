@@ -1,13 +1,19 @@
-class EnumValueObject {
-    protected _value: string
+import ValueObject from "./value-objects"
+
+class EnumValueObject extends ValueObject<string>{
     private validValues: string[]
 
     constructor(value: string, validValues: string[]) {
-        this._value = value
+        super(value)
         this.validValues = validValues
+        this.ensureValueIsValid(value)
     }
 
     private ensureValueIsValid(value: string){
-        return
+        if (typeof value !== "string") {
+            throw new Error("The value it´s not a string")
+        }
     }
 }
+
+export default EnumValueObject

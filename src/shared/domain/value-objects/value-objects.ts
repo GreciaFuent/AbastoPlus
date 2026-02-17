@@ -5,7 +5,10 @@ class ValueObject<T> {
         this._value = value
     }
 
-    public toString1(): string {
-        return "a"
+    public toString(): string {
+        return String(this._value)
     }
+
 }
+
+export default ValueObject
