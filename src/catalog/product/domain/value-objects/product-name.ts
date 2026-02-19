@@ -7,7 +7,7 @@ class ProductName extends StringValueObject {
     }
 
     private sizeName (value: string){
-        if (value.length <= 3) {
+        if (value.length <= 9) {
             throw new Error("the name it´s to small")
         }
     }

@@ -1,14 +1,11 @@
 import EnumValueObject from "../../../../shared/domain/value-objects/enum-value-object.ts";
 
 class ProductBaseUnit extends EnumValueObject {
-    constructor(value: string, validValues: string[]) {
-        super(value, validValues)
-        this.baseUnit(value, validValues)
+    private static readonly values =["Kg", "g", "lb", "ml", "lt", "unidad"]
+
+    constructor(value: string) {
+        super(value, ProductBaseUnit.values)
     }
 
-    private baseUnit(value: string, validValues: string[]) {
-        if (!validValues.includes(value)) {
-            throw new Error(" the value it´s not correct")
-        }
-    }   
+      
 }

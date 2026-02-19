@@ -7,6 +7,7 @@ class EnumValueObject extends ValueObject<string>{
         super(value)
         this.validValues = validValues
         this.ensureValueIsValid(value)
+        this.baseUnit(value, this.validValues)
     }
 
     private ensureValueIsValid(value: string){
@@ -14,6 +15,12 @@ class EnumValueObject extends ValueObject<string>{
             throw new Error("The value it´s not a string")
         }
     }
+
+    private baseUnit(value: string, validValues: string[]) {
+        if (!validValues.includes(value)) {
+            throw new Error(" the value it´s not correct")
+        }
+    } 
 }
 
 export default EnumValueObject
