@@ -13,3 +13,5 @@ class IntValueObject extends ValueObject<number>{
         }
     }
 }
+
+export default IntValueObject
