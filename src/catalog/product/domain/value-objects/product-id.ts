@@ -7,4 +7,4 @@ class ProductId extends IdentifierValueObject {
 
 }
 
-
+export default ProductId

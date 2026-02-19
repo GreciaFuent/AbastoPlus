@@ -12,3 +12,5 @@ class ProductName extends StringValueObject {
         }
     }
 }
+
+export default ProductName

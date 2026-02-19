@@ -1,16 +1,19 @@
 import Presentation from "./entities/presentation"
+import ProductBaseUnit from "./value-objects/product-base-unit"
+import ProductId from "./value-objects/product-id"
+import ProductName from "./value-objects/product-name"
 import ProductPresentation from "./value-objects/product-presentation"
 
 class Product {
-    private readonly productId: string
-    private readonly productName: string
-    private readonly baseUnit:string
+    private readonly productId: ProductId
+    private readonly productName: ProductName
+    private readonly baseUnit:ProductBaseUnit
     private productPresentation:Presentation[]
 
     constructor(productId:string, productName: string, baseUnit:string, productPresentation: Presentation[]) {
-        this.productId = productId
-        this.productName = productName
-        this.baseUnit = baseUnit
+        this.productId = new ProductId(productId)
+        this.productName = new ProductName(productName)
+        this.baseUnit = new ProductBaseUnit(baseUnit)
         this.productPresentation = productPresentation
     }
 

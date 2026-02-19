@@ -9,3 +9,6 @@ class ProductBaseUnit extends EnumValueObject {
 
       
 }
+
+
+export default ProductBaseUnit
