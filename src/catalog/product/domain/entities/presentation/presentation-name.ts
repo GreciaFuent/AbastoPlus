@@ -5,3 +5,5 @@ class PresentationName extends StringValueObject {
         super(value)
     }
 }
+
+export default PresentationName

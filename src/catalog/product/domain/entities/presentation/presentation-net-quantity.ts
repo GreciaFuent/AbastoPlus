@@ -6,3 +6,5 @@ class PresentationNetQuantity extends IntValueObject {
         super(value)
     }
 }
+
+export default PresentationNetQuantity

@@ -5,3 +5,5 @@ class PresentationID extends IdentifierValueObject {
         super(value)
     }
 }
+
+export default PresentationID
