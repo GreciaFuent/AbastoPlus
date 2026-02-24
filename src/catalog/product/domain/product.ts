@@ -4,7 +4,7 @@ import ProductId from "./value-objects/product-id"
 import ProductName from "./value-objects/product-name"
 import ProductPresentation from "./value-objects/product-presentation"
 
-class Product {
+export default class Product {
     private readonly productId: ProductId
     private readonly productName: ProductName
     private readonly baseUnit:ProductBaseUnit
@@ -26,3 +26,4 @@ class Product {
 
     
 }
+
