@@ -1,4 +1,4 @@
-import IdentifierValueObject from "../../../../shared/domain/value-objects/identifier-value-object.ts";
+import IdentifierValueObject from "../../../../shared/domain/value-objects/identifier-value-object";
 
 class ProductId extends IdentifierValueObject {
     constructor(value: string) {

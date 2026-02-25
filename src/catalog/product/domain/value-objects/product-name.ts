@@ -1,4 +1,4 @@
-import StringValueObject from "../../../../shared/domain/value-objects/string-value-object.ts";
+import StringValueObject from "../../../../shared/domain/value-objects/string-value-object";
 
 class ProductName extends StringValueObject {
     constructor(value: string) {
