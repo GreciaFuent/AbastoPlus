@@ -9,6 +9,10 @@ class ValueObject<T> {
         return String(this._value)
     }
 
+    public getValue(): T {
+        return this._value;
+    }
+
 }
 
 export default ValueObject

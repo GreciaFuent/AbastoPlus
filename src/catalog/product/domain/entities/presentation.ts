@@ -18,6 +18,16 @@ class Presentation {
         this.netQuantity = new PresentationNetQuantity(netQuantity)
         this.unitOfMeasure = new PresentationUnitMeasure(unitOfMeasure)
     }
+
+    public toPrimitives() {
+        return {
+            _id: this.id.getValue(),
+            presentation_name: this.name.getValue(),
+            presentation_type: this.type.getValue(),
+            presentation_net_quantity: this.netQuantity.getValue(),
+            presentation_unit_of_measure: this.unitOfMeasure.getValue(),
+        }
+    }
 }
 
 export default Presentation

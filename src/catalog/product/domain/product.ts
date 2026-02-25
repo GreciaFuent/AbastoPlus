@@ -24,6 +24,15 @@ export default class Product {
         return newProduct
     }
 
-    
+    public toPrimitives() {
+      return {
+        _id: this.productId.getValue(),
+        product_name: this.productName.getValue(),
+        product_base_unit: this.baseUnit.getValue(),
+        presentations: this.productPresentation.map(p =>
+          p.toPrimitives()
+        )
+      }
+    }
 }
 
