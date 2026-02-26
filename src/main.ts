@@ -1,39 +1,37 @@
 import { connectDB } from "./catalog/product/infrastructure/db";
 import MongoProductRepository from "./catalog/product/infrastructure/mongo-product-repository";
-import Product from "./catalog/product/domain/product";
+import SaveProduct from "./catalog/product/application/use-cases/save-product";
 
-async function bootstrap() {
+async function main() {
   await connectDB();
 
   console.log("App iniciada");
 
   const repository = new MongoProductRepository();
-
-  const product = Product.build(
-    "550e8400-e29b-41d4-a716-446655440000",
-    "Coca Cola Original 500ml",
-    "ml", 
-    [
+  const saveProduct = new SaveProduct(repository);
+  await saveProduct.execute({
+    productId: "550e8400-e29b-41d4-a716-446655440000",
+    productName: "Producto de prueba",
+    baseUnit: "kg",
+    productPresentation: [
       {
         id: "111e8400-e29b-41d4-a716-446655440001",
-        name: "Botella",
-        type: "bottle",          
-        netQuantity: 500,
-        unitOfMeasure: "ml"     
+        name: "Presentación 1",
+        type: "bottle",
+        netQuantity: 10,
+        unitOfMeasure: "kg"
       },
       {
         id: "222e8400-e29b-41d4-a716-446655440002",
-        name: "Lata",
-        type: "can",             
-        netQuantity: 355,
+        name: "Presentación 2",
+        type: "can",
+        netQuantity: 5,
         unitOfMeasure: "ml"
       }
     ]
-  );
-
-  await repository.save(product);
-
-  console.log("Producto guardado");
+  })
 }
 
-bootstrap();
+main();
+
+
