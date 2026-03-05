@@ -1,28 +1,31 @@
 import { connectDB } from "./catalog/product/infrastructure/db";
-import MongoProductRepository from "./catalog/product/infrastructure/mongo-product-repository";
+import "reflect-metadata"
 import SaveProduct from "./catalog/product/application/use-cases/save-product";
+import { container } from "./container/container";
+
+
 
 async function main() {
   await connectDB();
 
   console.log("App iniciada");
 
-  const repository = new MongoProductRepository();
-  const saveProduct = new SaveProduct(repository);
+  const saveProduct = container.get(SaveProduct);
+
   await saveProduct.execute({
-    productId: "550e8400-e29b-41d4-a716-446655440000",
+    productId: "550e8400-e29b-41d4-a716-446655440090",
     productName: "Producto de prueba",
-    baseUnit: "kg",
+    baseUnit: "Kg",
     productPresentation: [
       {
-        id: "111e8400-e29b-41d4-a716-446655440001",
+        id: "111e8400-e29b-41d4-a716-446655440801",
         name: "Presentación 1",
         type: "bottle",
         netQuantity: 10,
-        unitOfMeasure: "kg"
+        unitOfMeasure: "Kg"
       },
       {
-        id: "222e8400-e29b-41d4-a716-446655440002",
+        id: "222e8400-e29b-41d4-a716-446655449002",
         name: "Presentación 2",
         type: "can",
         netQuantity: 5,

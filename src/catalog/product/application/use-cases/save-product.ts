@@ -1,10 +1,12 @@
+import { inject, injectable } from "inversify";
 import Product from "../../domain/product";
-import ProductRepository from "../productRepository";
+import type ProductRepository from "../productRepository";
 
+@injectable()
 class SaveProduct {
     private repository: ProductRepository
 
-    constructor(repository: ProductRepository) {
+    constructor(@inject("ProductRepository") repository: ProductRepository) {
         this.repository = repository;
     }
 
