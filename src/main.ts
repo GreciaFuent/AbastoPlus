@@ -1,8 +1,9 @@
 import { connectDB } from "./catalog/product/infrastructure/db";
 import "reflect-metadata"
 import SaveProduct from "./catalog/product/application/use-cases/save-product";
-import { container } from "./container/container";
 import TranslateProduct from "./catalog/product/application/use-cases/translate_product";
+import { container } from "./infraestructure/container";
+import { EventBus } from "./shared/domain/bus/event-bus";
 
 
 
@@ -13,6 +14,16 @@ async function main() {
 
   // const saveProduct = container.get(SaveProduct);
   const translateProduct = container.get(TranslateProduct)
+
+  const eventBus = new EventBus()
+
+  eventBus.publish("ProductCreatedEvent", {"name": "papas"})
+  eventBus.publish("ProductCreatedEvent", {"name": "huevo"})
+  eventBus.publish("ProductCreatedEvent", {"name": "agua"})
+  eventBus.publish("ProductCreatedEvent", {"name": "manzana"})
+
+  eventBus.suscribe("ProductCreatedEvent", [translateProduct])
+  eventBus.consume("ProductCreatedEvent", 2)
 
   // await saveProduct.execute({
   //   productId: "550e8400-e29b-41d4-a716-446655440090",
@@ -36,7 +47,7 @@ async function main() {
   //   ]
   // })
 
-  console.log(await translateProduct.execute('name'))
+  // console.log(await translateProduct.execute('name'))
 }
 
 main();
