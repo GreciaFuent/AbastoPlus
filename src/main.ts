@@ -21,7 +21,6 @@ async function main() {
   eventBus.publish("ProductCreatedEvent", {"name": "huevo"})
   eventBus.publish("ProductCreatedEvent", {"name": "agua"})
   eventBus.publish("ProductCreatedEvent", {"name": "manzana"})
-
   eventBus.suscribe("ProductCreatedEvent", [translateProduct])
   eventBus.consume("ProductCreatedEvent", 2)
 
