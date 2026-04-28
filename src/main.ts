@@ -29,6 +29,7 @@ async function main() {
   // eventBus.suscribe("ProductCreatedEvent", [translateProduct])
   // eventBus.consume("ProductCreatedEvent", 2)
 
+
   // await saveProduct.execute({
   //   productId: "550e8400-e29b-41d4-a716-446655440090",
   //   productName: "Producto de prueba",
