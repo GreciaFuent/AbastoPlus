@@ -4,6 +4,7 @@ import SaveProduct from "./catalog/product/application/use-cases/save-product";
 import TranslateProduct from "./catalog/product/application/use-cases/translate_product";
 import { container } from "./infraestructure/container";
 import { EventBus } from "./shared/domain/bus/event-bus";
+import CustomerId from "./shared/domain/value-objects/customerId";
 
 
 
@@ -11,19 +12,22 @@ async function main() {
   // await connectDB();
 
   console.log("App iniciada");
+  const customerId = new CustomerId('550e8400-e29b-41d4-a716-446655440098');
+
+  console.log(customerId);
 
   // const saveProduct = container.get(SaveProduct);
-  const translateProduct = container.get(TranslateProduct)
+  // const translateProduct = container.get(TranslateProduct)
 
-  const eventBus = new EventBus()
+  // const eventBus = new EventBus()
 
-  eventBus.publish("ProductCreatedEvent", {"name": "papas"})
-  eventBus.publish("ProductCreatedEvent", {"name": "huevo"})
-  eventBus.publish("ProductCreatedEvent", {"name": "agua"})
-  eventBus.publish("ProductCreatedEvent", {"name": "manzana"})
+  // eventBus.publish("ProductCreatedEvent", {"name": "papas"})
+  // eventBus.publish("ProductCreatedEvent", {"name": "huevo"})
+  // eventBus.publish("ProductCreatedEvent", {"name": "agua"})
+  // eventBus.publish("ProductCreatedEvent", {"name": "manzana"})
 
-  eventBus.suscribe("ProductCreatedEvent", [translateProduct])
-  eventBus.consume("ProductCreatedEvent", 2)
+  // eventBus.suscribe("ProductCreatedEvent", [translateProduct])
+  // eventBus.consume("ProductCreatedEvent", 2)
 
   // await saveProduct.execute({
   //   productId: "550e8400-e29b-41d4-a716-446655440090",
