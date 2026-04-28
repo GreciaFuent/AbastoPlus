@@ -1,3 +1,3 @@
 export interface SubscriptionRepository<T> {
-    execute(payload: {}): void
+    execute(key: string, payload: {}): void
 }

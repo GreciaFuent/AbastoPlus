@@ -15,6 +15,7 @@ export class EventBus<T> implements BusRepository<T> {
     }
     
     suscribe(name:string, notification: Array<SubscriptionRepository<T>>) {
+
         this.suscribers.push({name, notification })
     }
 
@@ -30,7 +31,8 @@ export class EventBus<T> implements BusRepository<T> {
 
                 this.suscribers.forEach((suscriber) => {
                     suscriber.notification.forEach((service) => {
-                        service.execute(element.payload);
+                        console.log("suscriptor", service)
+                        service.execute(element.key, element.payload);
                     });
                 });
 
