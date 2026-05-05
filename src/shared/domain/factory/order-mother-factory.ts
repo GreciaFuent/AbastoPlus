@@ -37,7 +37,7 @@ export default class OrderMotherFactory {
     
     public static withItems(orderDraft: Order,productId: string,price: MoneyValueObject,quantity: number): Order {
         if (orderDraft.status !== "draft") {
-           throw new Error("the order must be in draft status"); 
+            throw new Error("the order must be in draft status"); 
         }
 
         let itemFound = false;
@@ -55,6 +55,11 @@ export default class OrderMotherFactory {
             new Item(productId, quantity, price.amount)
         );
         }
+
+        orderDraft.total.amount = orderDraft.item.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0
+        );
 
         return orderDraft;
     }

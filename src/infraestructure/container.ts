@@ -5,6 +5,7 @@ import SaveProduct from "../catalog/product/application/use-cases/save-product";
 import TranslateProduct from "../catalog/product/application/use-cases/translate_product";
 import MyMemoryTranslator from "../catalog/product/infrastructure/libre-translator";
 import type TranslateService from "../catalog/product/application/ports/translate_service";
+import PlaceOrder from "../order/application/use-cases/place-order";
 
 const container = new Container();
 
@@ -20,6 +21,10 @@ container
  */
 container
   .bind<SaveProduct>(SaveProduct)
+  .toSelf();
+
+container
+  .bind<PlaceOrder>(PlaceOrder)
   .toSelf();
 
 /**
